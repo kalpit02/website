@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #div1 {
+              width: 350px;
+              height: 70px;
+              padding: 10px;
+              border: 1px solid #aaaaaa;
+            }
+            /* mouse over link */
+            a:hover {
+              color: hotpink;
+            }
+            
+            /* selected link */
+            a:active {
+              color: blue;
+            }
+            </style>
+            <script>
+            function allowDrop(ev) {
+              ev.preventDefault();
+            }
+            
+            function drag(ev) {
+              ev.dataTransfer.setData("text", ev.target.id);
+            }
+            
+            function drop(ev) {
+              ev.preventDefault();
+              var data = ev.dataTransfer.getData("text");
+              ev.target.appendChild(document.getElementById(data));
+            }
+            </script>
+            
+
+            
+            
+            
+        </head>
+<body>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+    
+    <p>Drag the  image into the rectangle:</p>
+    
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <br>
+    <img id="drag1" src="C:\Users\anike\Desktop\Under-Armour-Symbol-PNG@ZEEVECTOR.png"
+    draggable="true" ondragstart="drag(event)" width="336" height="69">
+    <p><b><a href="2.html" target="_blank">This is a link</a></b></p>
+    
+
+</body>
+</html>
+

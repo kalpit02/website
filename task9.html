@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>login form</h1>
+    <script>
+        function validateForm()
+         {
+            
+            var username = document.forms["loginForm"]["username"].value;
+            var password = document.forms["loginForm"]["password"].value;
+            var phoneNumber = document.forms["loginForm"]["phoneNumber"].value;
+
+            
+            if (username == "" || password == "" || phoneNumber == "") 
+            {
+                alert("All fields must be filled out.");
+                return false;
+            }
+
+            
+            if (username.startsWith('_') || username.startsWith('@') || !isNaN(username.charAt(0))) 
+            {
+                alert("Username should not start with _, @ or number.");
+                return false;
+            }
+
+            
+            if (password.length < 6 || password.length > 12) 
+            {
+                alert("Password length must be between 6 and 12 characters.");
+                return false;
+            }
+
+        
+            if (!phoneNumber.match(/^[6-9]\d{9}$/)) 
+            {
+                alert("Phone number must be 10 digits and start with 6/7/8/9.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Login Form</h2>
+    <form name="loginForm" onsubmit="return validateForm()" action="task91.html" method="get">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber">
+        <br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
+</body>
+</html>

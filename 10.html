@@ -1,0 +1,36 @@
+<html>
+<body>
+
+<h2> Alert</h2>
+
+<button onclick="m()">Try it</button>
+
+<h2> Confirm Box</h2>
+
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+
+<script>
+function m() {
+  alert("I am an alert box!");
+}
+
+function myFunction() {
+  var txt;
+  if (confirm("Press a button!")) {
+    txt = "You pressed OK!";
+  } else {
+    txt = "You pressed Cancel!";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+
+
+
+</script>
+
+</body>
+</html>
